@@ -27,35 +27,6 @@ from minitorch.operators import (
 
 from .strategies import assert_close, small_floats
 
-from typing import Callable, List, Tuple
-
-import pytest
-from hypothesis import given
-from hypothesis.strategies import lists
-
-from minitorch import MathTest
-from minitorch.operators import (
-    add,
-    addLists,
-    eq,
-    id,
-    inv,
-    inv_back,
-    log_back,
-    lt,
-    max,
-    mul,
-    neg,
-    negList,
-    prod,
-    relu,
-    relu_back,
-    sigmoid,
-    sum,
-)
-
-from .strategies import assert_close, small_floats
-
 # ## Task 0.1 Basic hypothesis tests.
 
 
@@ -261,8 +232,3 @@ def test_backs(a: float, b: float) -> None:
     relu_back(a, b)
     inv_back(a + 2.4, b)
     log_back(abs(a) + 4, b)
-
-
-
-   
-  
