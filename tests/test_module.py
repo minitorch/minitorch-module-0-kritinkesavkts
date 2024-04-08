@@ -16,8 +16,8 @@ from .strategies import med_ints, small_floats
 
 
 class ModuleA1(minitorch.Module):
-    def _init_(self) -> None:
-        super()._init_()
+    def __init__(self) -> None:
+        super().__init__()
         self.p1 = minitorch.Parameter(5)
         self.non_param = 10
         self.a = ModuleA2()
@@ -25,20 +25,20 @@ class ModuleA1(minitorch.Module):
 
 
 class ModuleA2(minitorch.Module):
-    def _init_(self) -> None:
-        super()._init_()
+    def __init__(self) -> None:
+        super().__init__()
         self.p2 = minitorch.Parameter(10)
 
 
 class ModuleA3(minitorch.Module):
-    def _init_(self) -> None:
-        super()._init_()
+    def __init__(self) -> None:
+        super().__init__()
         self.c = ModuleA4()
 
 
 class ModuleA4(minitorch.Module):
-    def _init_(self) -> None:
-        super()._init_()
+    def __init__(self) -> None:
+        super().__init__()
         self.p3 = minitorch.Parameter(15)
 
 
@@ -68,16 +68,16 @@ VAL_B = 100.0
 
 
 class Module1(minitorch.Module):
-    def _init_(self, size_a: int, size_b: int, val: float) -> None:
-        super()._init_()
+    def __init__(self, size_a: int, size_b: int, val: float) -> None:
+        super().__init__()
         self.module_a = Module2(size_a)
         self.module_b = Module2(size_b)
         self.parameter_a = minitorch.Parameter(val)
 
 
 class Module2(minitorch.Module):
-    def _init_(self, extra: int = 0) -> None:
-        super()._init_()
+    def __init__(self, extra: int = 0) -> None:
+        super().__init__()
         self.parameter_a = minitorch.Parameter(VAL_A)
         self.parameter_b = minitorch.Parameter(VAL_B)
         self.non_parameter = 10
@@ -87,8 +87,8 @@ class Module2(minitorch.Module):
 
 
 class Module3(minitorch.Module):
-    def _init_(self) -> None:
-        super()._init_()
+    def __init__(self) -> None:
+        super().__init__()
         self.parameter_a = minitorch.Parameter(VAL_A)
 
 
@@ -167,7 +167,7 @@ def test_module_forward() -> None:
 
 
 class MockParam:
-    def _init_(self) -> None:
+    def __init__(self) -> None:
         self.x = False
 
     def requires_grad_(self, x: bool) -> None:
